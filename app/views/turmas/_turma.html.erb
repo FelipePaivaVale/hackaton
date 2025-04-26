@@ -1,7 +1,13 @@
- id="<%= dom_id turma %>">
-    <p>Nome: <%= turma.nome %></p>
-    <p>Horas: <%= turma.horas %></p>
-    <p>Status: <%= turma.status %></p>
-    <p>maximo_faltas: <%= turma.maximo_faltas %></p>
-    <%= link_to 'Registrar Presença', registrar_presenca_turma_path(turma), class: 'btn btn-primary' %>
+<div id="<%= dom_id turma %>" class="turma-card">
+  <div class="turma-content">
+    <h2 class="turma-title"><%= turma.nome %></h2>
+
+    <ul class="turma-details">
+      <li><strong>Horas:</strong> <%= turma.horas %></li>
+      <li><strong>Status:</strong> <%= turma.status %></li>
+      <li><strong>Máximo de Faltas:</strong> <%= turma.maximo_faltas %></li>
+    </ul>
+
+    <%= link_to 'Registrar Presença', registrar_presenca_turma_path(turma), class: 'turma-button' %>
+  </div>
 </div>
