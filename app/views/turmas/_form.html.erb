@@ -1,4 +1,68 @@
-<%= form_with(model: turma) do |form| %>
+<%= form_with(model: turma, html: { class: 'turma-form' }) do |form| %>
+  <style>
+    .turma-form {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .turma-form ul {
+      background-color: #ffe5e5;
+      border: 1px solid #ffcccc;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      color: #cc0000;
+      list-style: inside disc;
+    }
+
+    .turma-form div {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .turma-form label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .turma-form input,
+    .turma-form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .turma-form input:focus,
+    .turma-form textarea:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .turma-form input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px 16px;
+      font-size: 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .turma-form input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
   <% if turma.errors.any? %>
     <ul>
       <% turma.errors.full_messages_for(:nome).each do |message| %>
