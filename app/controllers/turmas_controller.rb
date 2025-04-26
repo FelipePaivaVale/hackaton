@@ -57,6 +57,19 @@ class TurmasController < ApplicationController
     end
   end
 
+  def registrar_presenca
+    @turma = Turma.find(params[:id])
+    @presenca = Presenca.new
+    @presenca.turma = @turma
+    @presenca.data = Date.today
+    @presenca.persenca = params[:presenca] == "true"
+    if @presenca.save
+      redirect_to @turma, notice: "Presença registrada com sucesso."
+    else
+      redirect_to @turma, alert: "Erro ao registrar presença."
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_turma

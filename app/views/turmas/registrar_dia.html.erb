@@ -1,0 +1,27 @@
+<h1>Registrar Presença</h1>
+
+<%= form_with url: registrar_presenca_path, method: :post, local: true do |form| %>
+    <div>
+        <label for="turma">Turma:</label>
+        <%= form.select :turma_id, @turmas.collect { |turma| [turma.nome, turma.id] }, prompt: "Selecione uma turma" %>
+    </div>
+
+    <div>
+        <label for="data">Data:</label>
+        <%= form.date_field :data, value: Date.today %>
+    </div>
+
+    <div>
+        <h3>Alunos:</h3>
+        <% @alunos.each do |aluno| %>
+            <div>
+                <%= check_box_tag "presencas[#{aluno.id}]", true %>
+                <%= label_tag "presencas_#{aluno.id}", aluno.nome %>
+            </div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.submit "Registrar Presença" %>
+    </div>
+<% end %>

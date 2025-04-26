@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_04_26_132538) do
+ActiveRecord::Schema[7.1].define(version: 2025_04_26_144433) do
   create_table "presencas", force: :cascade do |t|
     t.integer "turma_id", null: false
     t.date "data"
     t.boolean "persenca", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "horas"
     t.index ["turma_id"], name: "index_presencas_on_turma_id"
   end
 

@@ -3,7 +3,6 @@ class Turma < ApplicationRecord
 
 
     def maximo_faltas
-        max_faltas = (self.horas * 0.75).floor
-        self.horas - max_faltas
+        max_faltas = (self.horas * 0.25).floor
     end
 end
