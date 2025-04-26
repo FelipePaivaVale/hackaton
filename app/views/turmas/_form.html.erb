@@ -1,0 +1,34 @@
+<%= form_with(model: turma) do |form| %>
+  <% if turma.errors.any? %>
+    <ul>
+      <% turma.errors.full_messages_for(:nome).each do |message| %>
+        <li>Nome: <%= message %></li>
+      <% end %>
+      <% turma.errors.full_messages_for(:horas).each do |message| %>
+        <li>Horas: <%= message %></li>
+      <% end %>
+      <% turma.errors.full_messages_for(:dias).each do |message| %>
+        <li>Dias: <%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= form.label :nome, "Nome" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :horas, "Horas" %>
+    <%= form.number_field :horas %>
+  </div>
+
+  <div>
+    <%= form.label :dias, "Dias (JSON)" %>
+    <%= form.text_area :dias, placeholder: 'Exemplo: ["segunda", "terça", "quarta"]' %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
